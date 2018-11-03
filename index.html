@@ -16,13 +16,13 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="shortcut icon" href="iconos/titulo.ico" />
 
-    
+
     <script src="js/jquery.js"></script>
     <script src="js/cargamodulos.js"></script>
     <title>Principal</title>
 </head>
 
-<body>
+<body class="bg-dark">
     <!-- <a class="text-white" href="#">Acropolis Gym</a> -->
     <div class="container-fluid">
 
@@ -41,7 +41,7 @@
                         <a href="" class="text-white d-lg-block ">Acropolis Gym</a>
                         <hr class="d-none d-lg-block bg-light">
                     </div>
-                    <div class="collapse navbar-collapse d-lg-block" id="navbarNav">
+                    <div class="collapse navbar-collapse d-lg-block flex-column" id="navbarNav">
 
                         <ul class="navbar-nav mt-3 flex-column">
                             <li class="nav-item clientesLink active d-flex align-items-center">
@@ -59,31 +59,34 @@
                             <li class="nav-item d-flex align-items-center">
                                 <i class="far text-white fa-sticky-note"></i>
                                 <a class="nav-link px-2" href="#">Notas</a>
+
+                            </li>
+                            <div>
+                                <hr class="bg-light d-lg-block">
+                            </div>
+                            <li class="nav-item active d-flex align-items-center">
+                                <i class="fas fa-wrench text-white"></i>
+                                <a class="nav-link px-2" href="#">Herramientas<span class="sr-only">(current)</span></a>
                             </li>
                         </ul>
-                    </div>
-                    <hr class="bg-light">
-                    <ul class="navbar-nav mt-3 flex-column">
-                        <li class="nav-item active d-flex align-items-center">
-                            <i class="fas fa-wrench text-white"></i>
-                            <a class="nav-link px-2" href="#">Herramientas<span class="sr-only">(current)</span></a>
-                        </li>
 
-                    </ul>
+                       
+                    </div>
+
                 </div>
             </nav>
 
 
             <!-- contenido -->
-            <div class="col-lg-10 ml-auto bg-dark py-5 contenido h100" id="contenido">
-               
+            <div class="col-lg-10 ml-0 ml-lg-auto bg-dark py-5 contenido h100" id="contenido">
+
             </div>
         </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    
+
     <script src="js/jquery.js"></script>
     <script src="js/cargamodulos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
