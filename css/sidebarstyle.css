@@ -12,11 +12,25 @@
     .sidebar-sticky {
         position: -webkit-sticky;
         position: sticky;
-        top: 0px; /* Height of navbar */
+        top: 0; /* Height of navbar */
+        width: 80%;
         height: calc(100vh - 0px);
-        padding-top: .5rem;
+        /* padding-top: .5rem; */
         overflow-x: hidden;
         overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        
+    }
+
+    .nav-item {
+        margin: 0;
+        padding: 0;
+    }
+
 }
 
