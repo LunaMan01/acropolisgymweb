@@ -1,6 +1,6 @@
 <?php 
     function conexion() {
-        $con = new mysqli("localhost", "root", "", "acropolisgym");
+        $con = new mysqli("localhost", "root", "", "AcropolisGymNuevo");
         if($con->connect_errno) {
             echo "Fallo al conectar a MySQL: (" . $con->connect . ") " . $con->connect_error;   
         }   
