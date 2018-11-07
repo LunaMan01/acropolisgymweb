@@ -2,9 +2,8 @@ $(document).ready(function() {
     $('#nuevaMembresiaForm').submit(function(e) {
         e.preventDefault();
         enviar();
-        $('#nipCliente').val(" ");
+        $('#nipCliente').val(" "); 
     });
-
     function enviar() {
         var datos = $('#nuevaMembresiaForm').serialize();
         $.ajax({
@@ -12,7 +11,6 @@ $(document).ready(function() {
             url: "php/agregarMembresia.php",
             data: datos,
             success: function(data) {
-                
                 return;
             }
         });
