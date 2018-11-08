@@ -3,6 +3,7 @@ $(document).ready(function() {
         e.preventDefault();
         enviar();
         $('#nipCliente').val(" ");
+
         $('#nombre').val("");
         $('#apellidoPaterno').val("");
         $('#apellidoMaterno').val("");
@@ -13,6 +14,10 @@ $(document).ready(function() {
         $('#notas').val("");
     });     
     
+
+    });
+
+
     function enviar() {
         var datos = $('#nuevoClienteForm').serialize();
         $.ajax({
@@ -20,7 +25,12 @@ $(document).ready(function() {
             url: "php/agregarCliente.php",
             data: datos,
             success: function(data) { 
+
                 $('.cuerpo').load('php/cargarClientes.php');
+
+                console.log(data);
+                return;
+
             }
         });
         

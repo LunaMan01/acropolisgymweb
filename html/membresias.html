@@ -1,3 +1,4 @@
+
 <div class="container bg-dark">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark px-0 sticky-top">
@@ -8,23 +9,63 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link pl-0" href="#" data-toggle="modal" data-target="#agregarcliente"><i class="far fa-plus-square text-white h1"></i>
+        <li class="nav-item" id="agregar">
+          <a class="nav-link pl-0" href="#" data-toggle="modal" data-target="#agregarmembresia"><i class="far fa-plus-square text-white h1"></i>
             <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="far fa-trash-alt h1 text-white"></i></a>
+        <li class="nav-item" id="eliminar">
+          <a class="nav-link" href="#" id="eliminarmembresia"><i class="far fa-trash-alt h1 text-white"></i></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " href="#"><i class="far fa-edit h1 text-white"></i></a>
+        <li class="nav-item" id="editar">
+          <a class="nav-link " href="#" id="editarMembresia"><i class="far fa-edit h1 text-white"></i></a>
+        </li>
+        <li class="nav-item d-none" id="guardar">
+          <a class="nav-link " href="#" id="guardarEdicion"><i class="far fa-save h1 text-white"></i></a>
+        </li>
+        <li class="nav-item d-none" id="cancelar">
+          <a class="nav-link " href="#" id="cancelarEdicion"><i class="far fa-window-close h1 text-white"></i></i></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+        <input class="form-control mr-sm-2" type ="text" id="buscarMembresia">
       </form>
     </div>
   </nav>
   <!-- modal -->
+
+  <div class="modal fade" id="agregarmembresia" tabindex="-1" role="dialog" aria-labelledby="agregarModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nueva Membresia</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="nuevaMembresiaForm" method="POST">
+            <div class="form-group">
+              <label for="nipCliente">NIP Cliente</label>
+              <input type="text" class="form-control" id="nipCliente" name="nipCliente" required>
+            </div>
+            <div class="form-group">
+              <label for="fechaInicio">Fecha inicio</label>
+              <input type="date" class="form-control" id="fechaInicio" name="fechaInicio">
+            </div>
+            <div class="form-group">
+              <label for="fechaTermino">Fecha Termino</label>
+              <input type="date" class="form-control" id="fechaTermino" name="fechaFin">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary" id="btnGuardar" >Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- modal -->
   <div class="table-responsive">
     <table class="table table-hover table-dark mt-3">
@@ -40,5 +81,11 @@
       </tbody>
     </table>
   </div>
+
 </div>
 <script src="js/cargarmembresias.js"></script>
+<script src="js/agregarMembresias.js"></script>
+<script src="js/eliminarMembresia.js"></script>
+<script src="js/editarMembresia.js"></script>
+<script src="js/buscarMembresia.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
