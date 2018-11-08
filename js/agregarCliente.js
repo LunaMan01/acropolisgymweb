@@ -3,8 +3,16 @@ $(document).ready(function() {
         e.preventDefault();
         enviar();
         $('#nipCliente').val(" ");
-    });
-
+        $('#nombre').val("");
+        $('#apellidoPaterno').val("");
+        $('#apellidoMaterno').val("");
+        $('#edad').val("");
+        $('#genero').val("");
+        $('#peso').val("");
+        $('#problemas').val("");
+        $('#notas').val("");
+    });     
+    
     function enviar() {
         var datos = $('#nuevoClienteForm').serialize();
         $.ajax({
@@ -12,10 +20,10 @@ $(document).ready(function() {
             url: "php/agregarCliente.php",
             data: datos,
             success: function(data) { 
-                console.log(data);
-                return;
+                $('.cuerpo').load('php/cargarClientes.php');
             }
         });
         
     }
+
 });
