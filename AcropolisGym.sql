@@ -1,84 +1,77 @@
--- MySQL dump 10.16  Distrib 10.1.33-MariaDB, for Win32 (AMD64)
---
--- Host: localhost    Database: acropolisgym
--- ------------------------------------------------------
--- Server version	10.1.33-MariaDB
+--create database AcropolisGym
+--Use AcropolisGym
+/*
+create table Clientes (
+	NIP_Cliente int not null primary key,
+	nombre_Cliente varchar (30),
+	apellido_Paterno varchar(30),
+	apellido_Materno varchar(30),
+	edad_Cliente int,
+	genero char,
+	peso_Cliente float,
+	problemas_Salud_Cliente varchar(50),
+	nota_Cliente varchar(60)
+)
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+create table Productos(
+	id_Producto int not null primary key,
+	descripcion_Producto varchar (50),
+	precio float,
+	existencia int
+)
 
---
--- Table structure for table `clientes`
---
+create table Visitas(
+	id_Visita int not null identity(1,1) primary key,
+	NIP_Cliente int not null,
+	fecha varchar(10),
+	foreign key(NIP_Cliente) references Clientes(NIP_Cliente)
+)
 
-DROP TABLE IF EXISTS `clientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `clientes` (
-  `NIP_Cliente` int(11) NOT NULL,
-  `nombre_Cliente` varchar(30) DEFAULT NULL,
-  `apellido_Paterno` varchar(30) DEFAULT NULL,
-  `apellido_Materno` varchar(30) DEFAULT NULL,
-  `edad_Cliente` int(11) DEFAULT NULL,
-  `genero` char(1) DEFAULT NULL,
-  `peso_Cliente` float DEFAULT NULL,
-  `problemas_Salud_Cliente` varchar(50) DEFAULT NULL,
-  `nota_Cliente` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`NIP_Cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+create table Membresias(
+	id_Membresia int not null identity(1,1) primary key,
+	NIP_Cliente int not null,
+	fecha_Inicio varchar(10),
+	fecha_Fin varchar(10)
+	foreign key (NIP_Cliente) references Clientes(NIP_Cliente)
+)
 
---
--- Dumping data for table `clientes`
---
+create table Instructor(
+	NIP_Instructor int not null primary key,
+	nombre_Instructor varchar(30)
+)
 
-LOCK TABLES `clientes` WRITE;
-/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
-UNLOCK TABLES;
+create table Venta(
+	id_Venta int not null primary key,
+	NIP_Cliente int,
+	NIP_Instructor int,
+	fecha varchar(10),
+	foreign key (NIP_Cliente) references Clientes(NIP_Cliente),
+	foreign key (NIP_Instructor) references Instructor(NIP_Instructor)
+)
 
---
--- Table structure for table `membresias`
---
+create table DetalleVenta(
+	id_Venta int not null,
+	id_Producto int not null,
+	cantidad_Producto int,
+	total_Producto float,
+	foreign key (id_Producto) references Productos(id_Producto),
+	foreign key(id_Venta) references Venta(id_Venta),
+	primary key(id_Venta,id_Producto)
+)
 
-DROP TABLE IF EXISTS `membresias`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `membresias` (
-  `id_Membresia` int(11) NOT NULL,
-  `NIP_Cliente` int(11) NOT NULL,
-  `fecha_Inicio` varchar(10) DEFAULT NULL,
-  `fecha_Fin` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id_Membresia`),
-  KEY `NIP_Cliente` (`NIP_Cliente`),
-  CONSTRAINT `membresias_ibfk_1` FOREIGN KEY (`NIP_Cliente`) REFERENCES `clientes` (`NIP_Cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+create table Notas(
+	id_Nota int not null identity(1,1) primary key,
+	titulo varchar(20),
+	descripcion_Nota varchar(500),
+	fechaRecordar varchar(10)
+)
 
---
--- Dumping data for table `membresias`
---
+create Table Gastos(
+	id_Gasto int not null identity(1,1) primary key,
+	descripcion_Gasto varchar(50),
+	monto float,
+	fecha varchar(10)
+)
+*/
 
-LOCK TABLES `membresias` WRITE;
-/*!40000 ALTER TABLE `membresias` DISABLE KEYS */;
-/*!40000 ALTER TABLE `membresias` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2018-11-01 11:16:50
+select * from Clientes
