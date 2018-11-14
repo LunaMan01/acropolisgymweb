@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-$conexion = conexion();
+$conexion = $con;
 // if ($conexion->connect_errno) {
 //     echo "Fallo al conectar MySQL";
 //     exit();

@@ -1,7 +1,7 @@
 <?php
     include 'conexion.php';
 
-    $query = conexion();
+    $query = $con;
     $resultado = $query->query("SELECT * FROM membresias");
 
     while($reg=mysqli_fetch_array($resultado))  {

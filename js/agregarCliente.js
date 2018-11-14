@@ -2,14 +2,7 @@ $(document).ready(function() {
     $('#nuevoClienteForm').submit(function(e) {
         e.preventDefault();
         enviar();
-        $('#nombre').val("");
-        $('#apellidoPaterno').val("");
-        $('#apellidoMaterno').val("");
-        $('#edad').val("");
-        $('#genero').val("");
-        $('#peso').val("");
-        $('#problemas').val("");
-        $('#notas').val("");
+
     });     
     
     function enviar() {
@@ -20,9 +13,11 @@ $(document).ready(function() {
             data: datos,
             success: function(data) { 
                 $('.cuerpo').load('php/cargarClientes.php');
-                console.log("Bien");
+
                 console.log(data);
-            }
+                return;
+
+
         });
         
     }
