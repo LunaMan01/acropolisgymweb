@@ -2,7 +2,6 @@ $(document).ready(function() {
     $('#nuevoClienteForm').submit(function(e) {
         e.preventDefault();
         enviar();
-        $('#nipCliente').val(" ");
         $('#nombre').val("");
         $('#apellidoPaterno').val("");
         $('#apellidoMaterno').val("");
@@ -21,6 +20,8 @@ $(document).ready(function() {
             data: datos,
             success: function(data) { 
                 $('.cuerpo').load('php/cargarClientes.php');
+                console.log("Bien");
+                console.log(data);
             }
         });
         
