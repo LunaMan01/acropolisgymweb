@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-$conexion = conexion();
+$conexion = $con;
 $idMembresia = $_POST['id'];
 $resultado = $conexion->query("DELETE FROM membresias WHERE id_Membresia = ".$idMembresia."");
 

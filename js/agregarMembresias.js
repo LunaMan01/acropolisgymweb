@@ -11,7 +11,7 @@ $(document).ready(function() {
             url: "php/agregarMembresia.php",
             data: datos,
             success: function(data) {
-                return;
+                $('.cuerpoTabla').load('php/CargarMembresias.php');
             }
         });
         

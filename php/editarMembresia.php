@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-$conexion = conexion();
+$conexion = $con;
 $datos = json_decode($_POST['datos'], true);
 
 $id = $datos[0];
