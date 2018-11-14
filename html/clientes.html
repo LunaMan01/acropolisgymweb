@@ -46,13 +46,13 @@
             </div>
             <div class="modal-body">
               <form id="nuevoClienteForm" method="POST">
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="nipCliente">NIP Cliente</label>
                   <input type="text" class="form-control" id="nipCliente" name="nipCliente" required>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label for="nombre">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" name="nombre">
+                  <input type="text" class="form-control" id="nombreCliente" name="nombreCliente">
                 </div>
                 <div class="form-group">
                   <label for="apellidoPaterno">Apellido Paterno</label>
@@ -84,9 +84,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-primary" id="btnGuardar" >Guardar
-                    <script src="js/cargarCliente.js"></script>
-                  </button>
+                  <button type="submit" class="btn btn-primary" id="btnGuardar" >Guardar</button>
                 </div>
               </form>
             </div>
@@ -95,7 +93,7 @@
       </div>
 
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" id="buscarCliente" type="text">
         <!-- <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button> -->
       </form>
     </div>
@@ -121,5 +119,8 @@
 </div>
 </div>
 <script src="js/cargarCliente.js"></script>
-<script src="js/eliminarClientes.js"></script>
 <script src="js/agregarCliente.js"></script>
+<script src="js/eliminarClientes.js"></script>
+
+<script src="js/buscarClientes.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

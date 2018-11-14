@@ -12,4 +12,9 @@ $(document).ready(function() {
         $('.clientesLink').removeClass('active');
         $('.membresiasLink').addClass('active');
     });
+
+    $('#productosLink').click(function(e){
+        e.preventDefault();
+        $('.contenido').load('html/productos.html');
+    });
 });

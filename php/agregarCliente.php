@@ -2,8 +2,8 @@
     include 'conexion.php';
     $conexion = conexion();
 
-    $nipCliente = $_POST['nipCliente'];
-    $nombreCliente = $_POST['nombre'];
+    // $nipCliente = $_POST['nipCliente'];
+    $nombreCliente = $_POST['nombreCliente'];
     $apellidoPaterno = $_POST['apellidoPaterno'];
     $apellidoMaterno = $_POST['apellidoMaterno'];
     $edadCliente = $_POST['edad'];
@@ -12,8 +12,13 @@
     $problemasSalud = $_POST['problemas'];
     $notaCliente = $_POST['notas'];
 
-    if(!empty($_POST["nipCliente"]))
-        $resultado = $conexion->query("INSERT INTO clientes (NIP_Cliente, nombre_Cliente, apellido_Paterno, apellido_Materno, edad_Cliente, 
-        genero, peso_Cliente, problemas_Salud_Cliente, nota_Cliente) VALUES (".$nipCliente.",'".$nombreCliente."','".$apellidoPaterno."',
+    if(!empty($_POST["nombreCliente"])){
+        $resultado = $conexion->query("INSERT INTO clientes (nombre_Cliente, apellido_Paterno, apellido_Materno, edad_Cliente, 
+        genero, peso_Cliente, problemas_Salud_Cliente, nota_Cliente) VALUES ('".$nombreCliente."','".$apellidoPaterno."',
         '".$apellidoMaterno."','".$edadCliente."','".$genero."','".$pesoCliente."','".$problemasSalud."','".$notaCliente."')");
+        if(!$resultado){
+            echo mysqli_error($conexion);
+        }
+    }
+
 ?>
