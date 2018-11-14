@@ -8,7 +8,7 @@ if($dato != " "){
     $DATE = "'".$DATEF."'";
     
     if (isset($dato)) {
-        $con="select * from clientes where nombre_Cliente like ".$DATE;
+        $con="select * from clientes where NIP_Cliente like".$DATE."or nombre_Cliente like ".$DATE."or apellido_Paterno like".$DATE."or edad_Cliente like".$DATE."or genero like".$DATE;
         $resultado = $consulta->query($con);
         if($resultado) {
             while($reg=mysqli_fetch_array($resultado))  {
