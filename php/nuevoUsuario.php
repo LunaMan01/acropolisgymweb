@@ -8,24 +8,27 @@ $conexion = $con;
 
 $user_name = $_POST['user-name'];
 $pass = $_POST['user-pass'];
-$todos_privilegios = $_POST['todos-privilegios'];
 
-$privilegios = $_POST['privilegios'];
+if(isset($_POST['todos_privilegios']))
+    $todos_privilegios = $_POST['todos-privilegios'];
 
-$query = "";
-$queryPrivilegios="";
+$queryPrivilegios = "GRANT ";
 
-if($todos_privilegios == 'on') {
-    $queryPrivilegios = "GRANT ALL privileges on acropolisgymweb.* to '".$user_name."'@'localhost'";
-} else {
-    foreach($privilegio as $privilegios) {
-        if($privilegio == 'on') {
-            $queryPrivilegios .= $privilegios. ", ";
-        }
+// if($_POST['select-check'] == 'on');
+//     echo "alv";
+
+foreach($_POST as $privilegio) {
+    if($privilegio == 'SELECT' or $privilegio == 'INSERT') {
+        $queryPrivilegios .= $privilegio.", ";   
     }
 }
 
-echo $queryPrivilegios;
+$queryPrivilegios1 = ltrim($queryPrivilegios, ',');
+echo $queryPrivilegios1;
+
+
+
+// echo $queryPrivilegios;
 
 // if(!empty($_POST["user-name"])) {
 //     $query = "CREATE user '".$user_name."'@'localhost' identified by '".$pass."'";    
