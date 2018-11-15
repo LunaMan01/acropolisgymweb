@@ -4,8 +4,10 @@
     $_SESSION['pass'] = $_POST['pass'];
 
     $con = new mysqli("localhost", $_SESSION['user'], $_SESSION['pass'], "acropolisgymweb");
+
     if($con) {
         echo 1;
-    }else 
+    }else {
         echo 0;
+    }
 ?>

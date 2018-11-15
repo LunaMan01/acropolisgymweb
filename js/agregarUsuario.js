@@ -1,19 +1,17 @@
 $(document).ready(function() {
-    $('#nuevoClienteForm').submit(function(e) {
+    $('#nuevoUsuarioForm').submit(function(e) {
         e.preventDefault();
         enviar();
 
     });     
     
     function enviar() {
-        var datos = $('#nuevoClienteForm').serialize();
+        var datos = $('#nuevoUsuarioForm').serialize();
         $.ajax({
             type: "POST",
-            url: "php/agregarCliente.php",
+            url: "php/nuevoUsuario.php",
             data: datos,
             success: function(data) { 
-                $('.cuerpo').load('php/cargarClientes.php');
-
                 console.log(data);
                 return;
             }

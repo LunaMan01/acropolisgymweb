@@ -1,20 +1,40 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $('.contenido').load('html/clientes.html');
 
-    $('#clientesLink').click(function (e) { 
+    $('#clientesLink').click(function (e) {
         e.preventDefault();
+        $('.clientesLink').siblings().removeClass('active');
+        $('.clientesLink').addClass('active');
         $('.contenido').load('html/clientes.html');
     });
 
-    $('#membresiasLink').click(function (e) { 
+    $('#membresiasLink').click(function (e) {
         e.preventDefault();
         $('.contenido').load('html/membresias.html');
-        $('.clientesLink').removeClass('active');
+        $('.membresiasLink').siblings().removeClass('active');
         $('.membresiasLink').addClass('active');
     });
 
-    $('#productosLink').click(function(e){
+    $('#productosLink').click(function (e) {
         e.preventDefault();
         $('.contenido').load('html/productos.html');
     });
+
+    $('#herramientasLink').click(function (e) {
+        e.preventDefault();
+        $('.herramientasLink').siblings().removeClass('active');
+        $('.herramientasLink').addClass('active');
+        if ($('.submenu-herramientas').hasClass('d-none'))
+            $('.submenu-herramientas').removeClass('d-none');
+        else
+            $('.submenu-herramientas').addClass('d-none');
+    });
+
+    $('#nuevo-usuario').click(function (e) {
+        e.preventDefault();
+        $('.contenido').load('html/nuevo-usuario.html');
+        $('.nuevo-usuario').siblings().removeClass('active');
+        $('.nuevo-usuario').addClass('active');
+    });
+
 });
