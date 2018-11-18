@@ -2,33 +2,76 @@
 <form id="nuevoUsuarioForm" class="text-white">
     <div class="form-group">
         <label for="user-name">Nombre de usuario</label>
-        <input type="text" class="form-control" id="user-name" name="user-name" aria-describedby="emailHelp">
+        <input type="text" class="form-control" id="user-name" name="user-name" aria-describedby="user" required>
     </div>
     <div class="form-group">
         <label for="user-pass">Contraseña</label>
-        <input type="password" class="form-control" id="user-pass" name="user-pass" placeholder="Password">
+        <input type="password" class="form-control" id="user-pass" name="user-pass" placeholder="Password" required>
     </div>
     <div class="form-group">
         <label for="user-pass-confirmacion">Confirma tu Contraseña</label>
         <input type="password" class="form-control" id="user-pass-confirmacion" name="user-pass-confirmacion"
-            placeholder="Password">
+            placeholder="Password" required>
     </div>
     <div class="form-group">
-        <label for="user-pass-confirmacion">Privilegios para este usuario</label>
+        <label for="user-pass-confirmacion">Privilegios para este usuario: </label>
     </div>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="todos-privilegios" name="todos-privilegios" value="todos">
         <label class="form-check-label" for="todos-privilegios">Todos los privilegios</label>
     </div>
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="select-check" name="select-check" value="SELECT">
-        <label class="form-check-label" for="todos-privilegios">Select</label>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="select-check" name="privilegios[]" value="SELECT">
+                <label class="form-check-label" for="todos-privilegios">Consultar</label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="insert-check" name="privilegios[]" value="INSERT">
+                <label class="form-check-label" for="todos-privilegios">Agregar</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="select-check" name="privilegios[]" value="UPDATE">
+                <label class="form-check-label" for="todos-privilegios">Modificar</label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="insert-check" name="privilegios[]" value="DELETE">
+                <label class="form-check-label" for="todos-privilegios">Eliminar</label>
+            </div>
+        </div>
     </div>
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="insert-check" name="insert-check" value="INSERT">
-        <label class="form-check-label" for="todos-privilegios">Insert</label>
-    </div>
-
+    <!-- tablas -->
+    <div class="form-group">
+            <label for="user-pass-confirmacion">Tablas a las que tendra acceso: </label>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="todos-privilegios" name="todas-tablas" value="todas">
+            <label class="form-check-label" for="todos-privilegios">Todos las tablas</label>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="select-check" name="tablas[]" value="clientes">
+                    <label class="form-check-label" for="todos-privilegios">Clientes</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="insert-check" name="tablas[]" value="membresias">
+                    <label class="form-check-label" for="todos-privilegios">Membresias</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="select-check" name="tablas[]" value="productos">
+                    <label class="form-check-label" for="todos-privilegios">Productos</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="insert-check" name="tablas[]" value="notas">
+                    <label class="form-check-label" for="todos-privilegios">Notas</label>
+                </div>
+            </div>
+        </div>
     <button type="submit" class="btn btn-success">Añadir usuario</button>
 </form>
 <script src="js/agregarUsuario.js"></script>

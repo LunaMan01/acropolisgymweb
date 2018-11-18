@@ -1,39 +1,53 @@
 <?php
 include 'conexion.php';
 $conexion = $con;
-// if ($conexion->connect_errno) {
-//     echo "Fallo al conectar MySQL";
-//     exit();
-// }
+if ($conexion->connect_errno) {
+    echo "Fallo al conectar MySQL";
+    exit();
+}
+
+
 
 $user_name = $_POST['user-name'];
 $pass = $_POST['user-pass'];
 
-if(isset($_POST['todos_privilegios']))
-    $todos_privilegios = $_POST['todos-privilegios'];
+$query = "SELECT user from user where user like '".$user_name."'";
+$resultado = $conexion->query($query);
 
-$queryPrivilegios = "GRANT ";
-
-// if($_POST['select-check'] == 'on');
-//     echo "alv";
-
-foreach($_POST as $privilegio) {
-    if($privilegio == 'SELECT' or $privilegio == 'INSERT') {
-        $queryPrivilegios .= $privilegio.", ";   
-    }
-}
-
-$queryPrivilegios1 = ltrim($queryPrivilegios, ',');
-echo $queryPrivilegios1;
-
-
-
-// echo $queryPrivilegios;
-
+$count = mysqli_num_rows($resultado);
+if($count > 0)
+    echo 0;
+else
+    echo 1;
 // if(!empty($_POST["user-name"])) {
-//     $query = "CREATE user '".$user_name."'@'localhost' identified by '".$pass."'";    
-//     echo $query;
-//     $resultado = $conexion->query($query);
+//         $query = "CREATE user '".$user_name."'@'localhost' identified by '".$pass."'";
+//         $resultado = $conexion->query($query);    
+// }
+
+// $queryPrivilegios = "GRANT ";
+
+// if(isset($_POST['todos-privilegios'])){
+//     $queryPrivilegios .= 'ALL PRIVILEGES';
+// }
+// else if(isset($_POST['privilegios'])) {
+//     $privi = $_POST['privilegios'];
+//     foreach($privi as $privilegio) {
+//         $queryPrivilegios .= $privilegio.",";       
+//     }
+// }
+
+// $queryPrivilegios = trim($queryPrivilegios, ',');
+// $queryPrivilegios .= ' ON ';
+// if(isset($_POST['todas-tablas'])) {
+//     $queryPrivilegios .= "acropolisgymweb.* to '".$user_name."'@'localhost'";
 //     $resultado = $conexion->query($queryPrivilegios);
 // }
+// else if(isset($_POST['tablas'])) {
+//     $tablas = $_POST['tablas'];
+//     foreach($tablas as $tabla) {
+//         $toTables = "acropolisgymweb.".$tabla." to '".$user_name."'@'localhost'"; 
+//         $resultado = $conexion->query($queryPrivilegios.$toTables);
+//     }
+// }
+// echo 1;
 ?>
