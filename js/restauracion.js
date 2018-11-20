@@ -13,7 +13,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "php/restaurar.php",
-            dataType: 'text',  // what to expect back from the PHP script, if anything
+            dataType: 'text',  
             cache: false,
             contentType: false,
             processData: false,
