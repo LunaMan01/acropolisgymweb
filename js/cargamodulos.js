@@ -37,4 +37,11 @@ $(document).ready(function () {
         $('.nuevo-usuario').addClass('active');
     });
 
+    $('#respaldos').click(function (e) {
+        e.preventDefault();
+        $('.contenido').load('html/respaldos.html');
+        $('.respaldos').siblings().removeClass('active');
+        $('.respaldos').addClass('active');
+    });
+
 });
