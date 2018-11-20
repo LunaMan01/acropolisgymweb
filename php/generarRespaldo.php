@@ -16,4 +16,6 @@ header('Content-Description: File Transfer');
 header('Content-Type: application/sql');
 header('Content-Disposition: attachment; filename="'.basename($nombreRespaldo).'"');
 readfile("$nombreRespaldo");
+
+unlink($nombreRespaldo);
 ?>
