@@ -15,6 +15,13 @@ $(document).ready(function () {
         $('.membresiasLink').addClass('active');
     });
 
+    $('#notasLink').click(function (e) {
+        e.preventDefault();
+        $('.contenido').load('html/notas.html');
+        $('.notasLink').siblings().removeClass('active');
+        $('.notasLink').addClass('active');
+    });
+
     $('#productosLink').click(function (e) {
         e.preventDefault();
         $('.contenido').load('html/productos.html');
