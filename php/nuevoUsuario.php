@@ -10,44 +10,49 @@ if ($conexion->connect_errno) {
 
 $user_name = $_POST['user-name'];
 $pass = $_POST['user-pass'];
-
+$conexion->query('use mysql');
 $query = "SELECT user from user where user like '".$user_name."'";
 $resultado = $conexion->query($query);
 
 $count = mysqli_num_rows($resultado);
-if($count > 0)
+if($count > 0){
     echo 0;
-else
-    echo 1;
-// if(!empty($_POST["user-name"])) {
-//         $query = "CREATE user '".$user_name."'@'localhost' identified by '".$pass."'";
-//         $resultado = $conexion->query($query);    
-// }
+    exit;
+}
+else {
+    $conexion->query('use acropolisgymweb');
+}
 
-// $queryPrivilegios = "GRANT ";
+if(!empty($_POST["user-name"])) {
+        $query = "CREATE user '".$user_name."'@'localhost' identified by '".$pass."'";
+        $resultado = $conexion->query($query);    
+}
 
-// if(isset($_POST['todos-privilegios'])){
-//     $queryPrivilegios .= 'ALL PRIVILEGES';
-// }
-// else if(isset($_POST['privilegios'])) {
-//     $privi = $_POST['privilegios'];
-//     foreach($privi as $privilegio) {
-//         $queryPrivilegios .= $privilegio.",";       
-//     }
-// }
+$queryPrivilegios = "GRANT ";
 
-// $queryPrivilegios = trim($queryPrivilegios, ',');
-// $queryPrivilegios .= ' ON ';
-// if(isset($_POST['todas-tablas'])) {
-//     $queryPrivilegios .= "acropolisgymweb.* to '".$user_name."'@'localhost'";
-//     $resultado = $conexion->query($queryPrivilegios);
-// }
-// else if(isset($_POST['tablas'])) {
-//     $tablas = $_POST['tablas'];
-//     foreach($tablas as $tabla) {
-//         $toTables = "acropolisgymweb.".$tabla." to '".$user_name."'@'localhost'"; 
-//         $resultado = $conexion->query($queryPrivilegios.$toTables);
-//     }
-// }
-// echo 1;
+if(isset($_POST['todos-privilegios'])){
+    $queryPrivilegios .= 'ALL PRIVILEGES';
+}
+else if(isset($_POST['privilegios'])) {
+    $privi = $_POST['privilegios'];
+    foreach($privi as $privilegio) {
+        $queryPrivilegios .= $privilegio.",";       
+    }
+}
+
+$queryPrivilegios = trim($queryPrivilegios, ',');
+$queryPrivilegios .= ' ON ';
+if(isset($_POST['todas-tablas'])) {
+    $queryPrivilegios .= "acropolisgymweb.* to '".$user_name."'@'localhost'";
+    $resultado = $conexion->query($queryPrivilegios);
+}
+else if(isset($_POST['tablas'])) {
+    $tablas = $_POST['tablas'];
+    foreach($tablas as $tabla) {
+        $toTables = "acropolisgymweb.".$tabla." to '".$user_name."'@'localhost'"; 
+        $resultado = $conexion->query($queryPrivilegios.$toTables);
+    }
+}
+$conexion->query("FLUSH PRIVILEGES");
+echo 1;
 ?>

@@ -4,6 +4,7 @@ $(document).ready(function() {
         $(this).addClass('bg-info').siblings().removeClass('bg-info');
     });
 
+
     $('#btn-eliminar').click(function(e){
         var id_Cliente = $('.bg-info').find('td:eq(0)').text();
 

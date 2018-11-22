@@ -18,7 +18,8 @@ $(document).ready(function () {
             url: "php/nuevoUsuario.php",
             data: datos,
             success: function (data) {
-                if (data == 1) {
+                console.log(data);
+                if (data.indexOf("1") > -1) {
                     exito('Usuario añadido con éxito');
                 } else {
                     error('Ha ocurrido un problema, vuelva a intertar');
