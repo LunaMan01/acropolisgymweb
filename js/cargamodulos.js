@@ -25,6 +25,8 @@ $(document).ready(function () {
     $('#productosLink').click(function (e) {
         e.preventDefault();
         $('.contenido').load('html/productos.html');
+        $('.productosLink').siblings().removeClass('active');
+        $('.productosLink').addClass('active');
     });
 
     $('#herramientasLink').click(function (e) {
