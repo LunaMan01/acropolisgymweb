@@ -1,6 +1,6 @@
 <?php
     include 'conexion.php';
-    $conexion = conexion();
+    $conexion = $con;
 
     // $nipCliente = $_POST['nipCliente'];
     $nombreCliente = $_POST['nombreCliente'];
