@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-$consulta  = conexion();
+$consulta  = $con;
 $dato = $_POST['b'];
 
 if($dato != " "){
