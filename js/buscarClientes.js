@@ -17,7 +17,7 @@ $(document).ready(function () {
             },
             success: function (data) {
                 console.log(consulta);
-                $('.cuerpo').html(data);
+                $('.cuerpoTabla').html(data);
             }
         });
 
