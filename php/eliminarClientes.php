@@ -3,7 +3,7 @@
 
     $id_Cliente = $_POST["id"];
     
-    $query = conexion();
+    $query = $con;
 
     $resultado = $query->query("DELETE FROM clientes WHERE NIP_Cliente =".$id_Cliente);
 
