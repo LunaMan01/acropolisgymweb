@@ -20,7 +20,7 @@ $(document).ready(function() {
             url: "php/agregarCliente.php",
             data: datos,
             success: function(data) { 
-                $('.cuerpo').load('php/cargarClientes.php');
+                $('.cuerpoTabla').load('php/cargarClientes.php');
 
                 console.log(data);
                 return;
