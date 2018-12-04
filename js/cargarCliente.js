@@ -1,3 +1,3 @@
 $(document).ready(function() {
-    $('.cuerpo').load('php/cargarClientes.php');
+    $('.cuerpoTabla').load('php/cargarClientes.php');
 });
