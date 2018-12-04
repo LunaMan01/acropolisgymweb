@@ -1,6 +1,6 @@
 $(document).ready(function() {
     
-    $('.cuerpo').on('click','tr',function(e){
+    $('.cuerpoTabla').on('click','tr',function(e){
         $(this).addClass('bg-info').siblings().removeClass('bg-info');
     });
 
